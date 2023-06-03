@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import { BrowserRouter } from "react-router-dom";
 
@@ -7,6 +8,4 @@ import Routes from "script/utils/Routes";
 // import { store } from "script/utils/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-      <BrowserRouter>{Routes}</BrowserRouter>
-);
+root.render(<BrowserRouter>{Routes}</BrowserRouter>);

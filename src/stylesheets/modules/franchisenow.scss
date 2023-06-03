@@ -1,0 +1,43 @@
+.franchise-now-container {
+  .image-container {
+    height: 300px;
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+
+    .image-wrapper {
+      position: absolute;
+      top: -50px;
+      transition: 1s ease;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .franchise-now-wrapper {
+    text-align: center;
+    padding: 20px;
+
+    .franchise-now-text {
+      font-family: montserratsemibold;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .franchise-button-container {
+      background-color: var(--yellow);
+      padding: 20px 30px;
+      font-family: lemonmilk-bold;
+      border-radius: 10px;
+      transition: 1s ease;
+      color: var(--red);
+      display: inline-block;
+
+      &:hover {
+        background-color: white;
+      }
+    }
+  }
+}

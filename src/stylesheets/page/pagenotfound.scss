@@ -1,0 +1,26 @@
+.page-not-found-container {
+  height: 100vh;
+  background-color: var(--yellow);
+  position: relative;
+
+  .page-not-found-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+
+    .text-container {
+      text-align: center;
+
+      .title-label {
+        font-family: barabara;
+        font-size: 50px;
+        display: block;
+      }
+
+      .more-details-container {
+      }
+    }
+  }
+}

@@ -1,4 +1,13 @@
-.header-container{
-    padding: 20px 30px;
-    background-color: var(--yellow);
+.header-container {
+  padding: 10px 30px;
+  background-color: var(--yellow);
+
+  .header-wrapper {
+    max-width: 1000px;
+    margin: auto;
+
+    .logo-container {
+      height: 90px;
+    }
+  }
 }

@@ -1,0 +1,14 @@
+.product-card-container {
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  height: 100%;
+  text-align: center;
+
+  .product-name {
+    font-family: lemonmilk-bold;
+    font-size: 20px;
+    display: block;
+    margin: 25px 0 10px 0;
+  }
+}

@@ -1,0 +1,33 @@
+.book-a-meeting-container {
+  .meeting-button-container {
+    .meeting-button {
+      padding: 20px;
+      cursor: pointer;
+      text-align: center;
+      font-family: lemonmilk-bold;
+      border: 2px solid var(--yellow);
+      margin-bottom: 10px;
+      transition: 1s ease;
+
+      &:hover {
+        background: var(--yellow);
+      }
+    }
+
+    .active {
+      background: var(--yellow);
+    }
+  }
+
+  .book-a-meeting-wrapper {
+    .office-visit-form-hide,
+    .online-meeting-form-hide {
+      display: none;
+    }
+
+    .office-visit-form-show,
+    .online-meeting-form-show {
+      display: block;
+    }
+  }
+}

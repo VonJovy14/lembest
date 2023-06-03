@@ -1,0 +1,15 @@
+.button-container {
+  cursor: pointer;
+  font-family: lemonmilk-bold;
+
+  .fill-on-hover {
+    padding: 10px 20px;
+    transition: 1s ease;
+    color: var(--red);
+
+    &:hover {
+      background-color: var(--orange);
+      color: white;
+    }
+  }
+}
