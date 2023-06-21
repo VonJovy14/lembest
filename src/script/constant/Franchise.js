@@ -5,7 +5,7 @@ export const WhyChooseUSData = [
   },
   {
     id: 2,
-    text: "EAST TO MANAGE",
+    text: "EASY TO MANAGE",
   },
   {
     id: 3,

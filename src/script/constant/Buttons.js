@@ -25,3 +25,36 @@ export const Navbar = [
     link: "gallery",
   },
 ];
+
+export const GalleryButtons = [
+  {
+    id: 1,
+    text: "IMAGES",
+  },
+  {
+    id: 2,
+    text: "TESTIMONIAL",
+  },
+  {
+    id: 3,
+    text: "PROMOTION",
+  },
+];
+
+export const FooterButtons = [
+  {
+    id: 1,
+    text: "franchise",
+    link: "franchise",
+  },
+  {
+    id: 2,
+    text: "career",
+    link: "/",
+  },
+  {
+    id: 3,
+    text: "contact us",
+    link: "/",
+  },
+];

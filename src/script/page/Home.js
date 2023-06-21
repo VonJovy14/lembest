@@ -9,7 +9,7 @@ import ImageCarousel from "script/components/display/ImageCarousel";
 export default class Home extends Component {
   render() {
     return (
-      <div className="franchise-container page-container">
+      <div className="home-container page-container">
         <div className="content-container">
           <Grid container spacing={2}>
             <Grid item xs>

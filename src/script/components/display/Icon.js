@@ -7,6 +7,7 @@ import DescriptionIcon from "@mui/icons-material/Description";
 import EngineeringIcon from "@mui/icons-material/Engineering";
 import Groups3Icon from "@mui/icons-material/Groups3";
 import CelebrationIcon from "@mui/icons-material/Celebration";
+import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 
 const _renderIcon = (type, size) => {
   switch (type) {
@@ -24,6 +25,8 @@ const _renderIcon = (type, size) => {
       return <Groups3Icon sx={{ fontSize: size }} />;
     case "party":
       return <CelebrationIcon sx={{ fontSize: size }} />;
+    case "play_button":
+      return <PlayCircleOutlineIcon sx={{ fontSize: size }} />;
     default:
       return null;
   }

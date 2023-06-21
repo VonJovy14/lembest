@@ -7,6 +7,7 @@ import Home from "script/page/Home";
 import Products from "script/page/Products";
 import Franchise from "script/page/Franchise";
 import About from "script/page/About";
+import Gallery from "script/page/Gallery";
 import PageNotFound from "script/page/PageNotFound";
 
 const routes = (
@@ -16,6 +17,7 @@ const routes = (
       <Route element={<Products />} path="/product" />
       <Route element={<Franchise />} path="/franchise" />
       <Route element={<About />} path="/about" />
+      <Route element={<Gallery />} path="/gallery" />
     </Route>
 
     <Route element={<PageNotFound />} path="*" />

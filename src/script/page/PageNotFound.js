@@ -27,6 +27,7 @@ export default class PageNotFound extends Component {
                 <div className="more-details-container">
                   <SocialIcon type="facebook" />
                   <SocialIcon type="instagram" />
+                  <SocialIcon type="whatsapp" />
                 </div>
               </div>
             </Grid>

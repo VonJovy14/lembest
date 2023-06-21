@@ -14,7 +14,7 @@ function SixSteps() {
       <Title text="6 EASY STEPS" color="red" size="extra-large" />
 
       <div className="six-steps-wrapper">
-        <Grid container rowSpacing={2} spacing={5}>
+        <Grid container spacing={5}>
           {SixStepsData.map((data, index) => (
             <Grid item xs={6} key={index}>
               <div className="item-container">

@@ -2,6 +2,8 @@ import React from "react";
 
 import "stylesheets/components/display/socialicon.scss";
 
+import { Link } from "react-router-dom";
+
 import { ReactComponent as Facebook } from "assets/images/social/Facebook.svg";
 import { ReactComponent as Instagram } from "assets/images/social/Instagram.svg";
 import { ReactComponent as Messenger } from "assets/images/social/Messenger.svg";
@@ -12,17 +14,41 @@ import { ReactComponent as WhatsApp } from "assets/images/social/WhatsApp.svg";
 const _renderIcon = (type) => {
   switch (type) {
     case "facebook":
-      return <Facebook />;
+      return (
+        <Link to="https://www.facebook.com/lembestlechonofficial/">
+          <Facebook />
+        </Link>
+      );
     case "instagram":
-      return <Instagram />;
+      return (
+        <Link to="https://www.instagram.com/lembestlechonofficial/">
+          <Instagram />
+        </Link>
+      );
     case "messenger":
-      return <Messenger />;
+      return (
+        <Link to="">
+          <Messenger />
+        </Link>
+      );
     case "twitter":
-      return <Twitter />;
+      return (
+        <Link to="">
+          <Twitter />
+        </Link>
+      );
     case "web":
-      return <Web />;
+      return (
+        <Link to="">
+          <Web />
+        </Link>
+      );
     case "whatsapp":
-      return <WhatsApp />;
+      return (
+        <Link to="https://wa.me/+639602511133">
+          <WhatsApp />
+        </Link>
+      );
     default:
       return null;
   }
