@@ -1,0 +1,53 @@
+.group-button-container {
+  .bordered-red {
+    border: solid 2px var(--red);
+  }
+
+  .bordered-yellow {
+    border: solid 2px var(--yellow);
+  }
+
+  .bordered-orange {
+    border: solid 2px var(--orange);
+  }
+
+  .group-button-wrapper {
+    .button-container {
+      .button-wrapper {
+        position: relative;
+        padding: 15px;
+        text-align: center;
+        transition: 0.5s ease;
+        height: 100%;
+
+        .button {
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+
+    .active {
+      .yellow {
+        background-color: var(--yellow);
+      }
+
+      .orange {
+        background-color: var(--orange);
+      }
+    }
+
+    .yellow {
+      &:hover {
+        background-color: var(--yellow);
+      }
+    }
+
+    .orange {
+      &:hover {
+        background-color: var(--yellow);
+      }
+    }
+  }
+}

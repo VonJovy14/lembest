@@ -1,0 +1,23 @@
+.franchise-details-container {
+  .meeting-type-button-container {
+    margin-bottom: 20px;
+  }
+
+  .franchisee-information-container {
+    .franchisee-information-title-container {
+      border-bottom: solid 2px var(--orange);
+      margin-bottom: 20px;
+    }
+
+    .date-time-note-container {
+      .date-time-note-wrapper {
+        margin-top: 10px;
+
+        span {
+          display: block;
+          text-align: justify;
+        }
+      }
+    }
+  }
+}

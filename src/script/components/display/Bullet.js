@@ -1,21 +1,19 @@
 import React from "react";
 
-import "stylesheets/components/display/bullet.scss";
-
 import { Grid } from "@material-ui/core";
 
 import Icon from "./Icon";
 
-const Bullet = ({ text, type, size }) => {
+const Bullet = ({ text, type, size, spacing }) => {
   return (
     <div className="bullet-container">
-      <Grid container alignItems="center" spacing={2}>
-        <Grid item xs={1.1}>
+      <Grid container alignItems="center" spacing={spacing}>
+        <Grid item xs={2}>
           <Icon type={type} size={size} />
         </Grid>
 
         <Grid item xs={10}>
-          <span>{text.toUpperCase()}</span>
+          <span>{text}</span>
         </Grid>
       </Grid>
     </div>

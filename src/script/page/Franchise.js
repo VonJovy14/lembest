@@ -1,32 +1,25 @@
 import React, { Component } from "react";
 
-import "stylesheets/page/franchise.scss";
-
 import { Grid } from "@material-ui/core";
 
-import WhyChooseUs from "script/modules/WhyChooseUs";
-import SixSteps from "script/modules/SixSteps";
-import BookaMeeting from "script/modules/BookaMeeting";
+import WhyChoseUs from "script/modules/WhyChoseUs";
+import SixEasySteps from "script/modules/SixEasySteps";
+import FranchiseeDetails from "script/modules/FranchiseeDetails";
 
 export default class Franchise extends Component {
   render() {
     return (
-      <div className="franchise-container page-container">
-        <div className="content-container">
-          <Grid container spacing={2} justifyContent="center">
-            <Grid item md={12} lg>
-              <WhyChooseUs />
-              <br />
-              <br />
-              <br />
-              <SixSteps />
-            </Grid>
-
-            <Grid item>
-              <BookaMeeting />
-            </Grid>
+      <div className="franchise-container">
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={6}>
+            <WhyChoseUs />
+            <SixEasySteps />
           </Grid>
-        </div>
+
+          <Grid item xs={12} md={6}>
+            <FranchiseeDetails />
+          </Grid>
+        </Grid>
       </div>
     );
   }

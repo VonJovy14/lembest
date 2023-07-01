@@ -4,23 +4,23 @@ import { Routes, Route } from "react-router";
 
 import App from "script/utils/App";
 import Home from "script/page/Home";
-import Products from "script/page/Products";
-import Franchise from "script/page/Franchise";
+import Product from "script/page/Product";
 import About from "script/page/About";
+import Franchise from "script/page/Franchise";
 import Gallery from "script/page/Gallery";
-import PageNotFound from "script/page/PageNotFound";
+// import PageNotFound from "script/page/PageNotFound";
 
 const routes = (
   <Routes>
     <Route element={<App />}>
       <Route element={<Home />} path="/" />
-      <Route element={<Products />} path="/product" />
-      <Route element={<Franchise />} path="/franchise" />
+      <Route element={<Product />} path="/product" />
       <Route element={<About />} path="/about" />
+      <Route element={<Franchise />} path="/franchise" />
       <Route element={<Gallery />} path="/gallery" />
     </Route>
 
-    <Route element={<PageNotFound />} path="*" />
+    {/* <Route element={<PageNotFound />} path="*" /> */}
   </Routes>
 );
 

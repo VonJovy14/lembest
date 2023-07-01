@@ -1,5 +1,3 @@
-import React from "react";
-
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import EditCalendarIcon from "@mui/icons-material/EditCalendar";
 import WhereToVoteIcon from "@mui/icons-material/WhereToVote";

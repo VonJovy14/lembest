@@ -49,3 +49,22 @@ export const SixStepsData = [
     type: "party",
   },
 ];
+
+export const MeetingType = [
+  {
+    id: 1,
+    text: "office visit",
+  },
+  {
+    id: 2,
+    text: "online meeting",
+  },
+];
+
+export const FranchiseeData = {
+  full_name: "",
+  contact_number: "",
+  email: "",
+  date: null,
+  time: null,
+};

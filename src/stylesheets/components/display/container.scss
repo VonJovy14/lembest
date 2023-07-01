@@ -1,0 +1,40 @@
+.container-container {
+  .background-red,
+  .background-yellow,
+  .background-orange,
+  .background-white,
+  .outlined-red,
+  .outlined-yellow,
+  .outlined-orange {
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .background-red {
+    background-color: var(--red);
+  }
+
+  .background-yellow {
+    background-color: var(--yellow);
+  }
+
+  .background-orange {
+    background-color: var(--orange);
+  }
+
+  .background-white {
+    background-color: white;
+  }
+
+  .outlined-red {
+    border: solid 2px var(--red);
+  }
+
+  .outlined-yellow {
+    border: solid 2px var(--yellow);
+  }
+
+  .outlined-orange {
+    border: solid 2px var(--orange);
+  }
+}

@@ -7,14 +7,18 @@ import "stylesheets/utils/colors.scss";
 import { Outlet } from "react-router-dom";
 
 import Header from "script/modules/Header";
-import Footer from "script/modules/Footer";
+// import Footer from "script/modules/Footer";
 
 function App() {
   return (
     <div className="app-container">
       <Header />
-      <Outlet />
-      <Footer />
+
+      <div className="app-wrapper">
+        <Outlet />
+      </div>
+
+      {/* <Footer /> */}
     </div>
   );
 }

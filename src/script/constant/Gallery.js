@@ -2,8 +2,7 @@ export const Images = [
   {
     id: 1,
     image: "1CO191sDk68rUPnyife29SiFkKv4DXKhC",
-    title:
-      "Take a break this Labor Day, make it memorable with Lembest because you deserve the Best.",
+    title: "Take a break this Labor Day, make it memorable with Lembest.",
   },
   {
     id: 2,

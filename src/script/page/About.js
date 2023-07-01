@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import "stylesheets/page/about.scss";
 
-import Logo from "../../assets/images/Logo 2.PNG";
+import Logo from "../../assets/images/Logo2.PNG";
 
 import { Grid } from "@material-ui/core";
 import {
@@ -14,30 +14,34 @@ import {
 
 import Image from "script/components/display/Image";
 import Title from "script/components/display/Title";
-import Icon from "script/components/display/Icon";
+import Bullet from "script/components/display/Bullet";
 
 export default class About extends Component {
-  _renderAboutModule = (text, size, description) => (
+  _renderAboutModule = (text, description) => (
     <div className="render-about-module-container">
-      <Title text={text} color="red" size={size} />
+      <Title
+        text={text.toUpperCase()}
+        variant="underline"
+        color="red"
+        size="large"
+      />
       <div className="description-container">{description}</div>
     </div>
   );
 
-  _renderAboutGoalModule = (description) => (
+  _renderAboutGoalModule = (text, description) => (
     <div className="render-about-module-container">
-      <Title text="goal" color="red" size="medium" />
+      <Title text={text.toUpperCase()} variant="underline" color="red" />
 
       {description.map((data, index) => (
         <div className="description-container" key={index}>
-          <Grid container alignItems="center" spacing={1}>
-            <Grid item>
-              <Icon type="check" />
-            </Grid>
-            <Grid item xs>
-              {data.text}
-            </Grid>
-          </Grid>
+          <Bullet
+            text={data.text}
+            type="check"
+            size={30}
+            key={index}
+            spacing={1}
+          />
         </div>
       ))}
     </div>
@@ -45,34 +49,34 @@ export default class About extends Component {
 
   render() {
     return (
-      <div className="about-container page-container">
-        <div className="content-container">
-          <Grid container spacing={5} alignItems="center">
-            <Grid item xs={7}>
-              {this._renderAboutModule("ABOUT", "extra-large", AboutDetails)}
-            </Grid>
-
-            <Grid item xs={5}>
-              <Image image={Logo} fix_on="width" />
-            </Grid>
+      <div className="about-container">
+        <Grid container spacing={5} alignItems="center" justifyContent="center">
+          <Grid item xs={12} md={7}>
+            {this._renderAboutModule("ABOUT", AboutDetails)}
           </Grid>
 
-          <Grid container spacing={3}>
-            <Grid item xs>
+          <Grid item xs={4} md={5}>
+            <Image image={Logo} fix_on="width" />
+          </Grid>
+        </Grid>
+
+        <div className="about-content-container">
+          <Grid container spacing={3} justifyContent="center">
+            <Grid item xs={12} sm={6} md={4}>
               <div className="about-content-wrapper">
-                {this._renderAboutModule("vision", "medium", VisionDetails)}
+                {this._renderAboutModule("vision", VisionDetails)}
               </div>
             </Grid>
 
-            <Grid item xs>
+            <Grid item xs={12} sm={6} md={4}>
               <div className="about-content-wrapper">
-                {this._renderAboutModule("mission", "medium", MissionDetails)}
+                {this._renderAboutModule("mission", MissionDetails)}
               </div>
             </Grid>
 
-            <Grid item xs>
+            <Grid item xs={12} sm={6} md={4}>
               <div className="about-content-wrapper">
-                {this._renderAboutGoalModule(GoalDetails)}
+                {this._renderAboutGoalModule("goal", GoalDetails)}
               </div>
             </Grid>
           </Grid>

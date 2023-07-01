@@ -1,23 +1,17 @@
 import React, { Component } from "react";
 
-import "stylesheets/page/gallery.scss";
-
 import { Grid } from "@material-ui/core";
 import { GalleryButtons } from "script/constant/Buttons";
 import { Images, Testimonial, Promotion } from "script/constant/Gallery";
 
-import Title from "script/components/display/Title";
+import GroupButton from "script/components/input/GroupButton";
 import GalleryCard from "script/modules/GalleryCard";
 
 export default class Gallery extends Component {
-  state = {
-    activeButton: 1,
-    items: Images,
-    isRenderImage: true,
-  };
+  state = { activeId: 1, items: Images, isRenderImage: true };
 
-  handleGalleryItemChange = (buttonId) => {
-    this.setState({ activeButton: buttonId });
+  handleItemChange = (buttonId) => {
+    this.setState({ activeId: buttonId });
 
     if (buttonId === 1) {
       this.setState({ items: Images });
@@ -33,36 +27,29 @@ export default class Gallery extends Component {
 
   render() {
     return (
-      <div className="gallery-container page-container">
-        <div className="content-container">
-          <div className="gallery-nav-container">
-            <Grid container>
-              {GalleryButtons.map((data, index) => (
-                <Grid item xs={12 / GalleryButtons.length} key={index}>
-                  <div
-                    onClick={() => this.handleGalleryItemChange(data.id)}
-                    className={
-                      this.state.activeButton === data.id
-                        ? "active-button"
-                        : "inactive-button"
-                    }
-                  >
-                    <Title text={data.text} color="blue" size="medium" />
-                  </div>
-                </Grid>
-              ))}
-            </Grid>
-          </div>
+      <div className="gallery-container">
+        <GroupButton
+          data={GalleryButtons}
+          activeId={this.state.activeId}
+          color="orange"
+          onButtonClick={(data) => this.handleItemChange(data)}
+        />
 
-          <div className="item-container">
-            <Grid container>
-              {this.state.items.map((data, index) => (
-                <Grid item xs={this.state.isRenderImage ? 3 : 4} key={index}>
-                  <GalleryCard isImage={this.state.isRenderImage} data={data} />
-                </Grid>
-              ))}
-            </Grid>
-          </div>
+        <div className="item-container">
+          <Grid container spacing={this.state.isRenderImage ? 0 : 1}>
+            {this.state.items.map((data, index) => (
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={4}
+                lg={this.state.isRenderImage ? 3 : 4}
+                key={index}
+              >
+                <GalleryCard isImage={this.state.isRenderImage} data={data} />
+              </Grid>
+            ))}
+          </Grid>
         </div>
       </div>
     );

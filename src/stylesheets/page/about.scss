@@ -1,16 +1,17 @@
 .about-container {
   .render-about-module-container {
     text-align: justify;
-
-    .description-container {
-      margin-top: 10px;
-    }
   }
 
-  .about-content-wrapper {
-    border: 2px solid var(--orange);
-    padding: 15px;
-    border-radius: 20px;
-    height: 100%;
+  .about-content-container {
+    margin-top: 20px;
+
+    .about-content-wrapper {
+      padding: 20px;
+      border-radius: 10px;
+      border: solid 2px var(--orange);
+      height: 100%;
+      text-align: center;
+    }
   }
 }

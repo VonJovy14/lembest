@@ -1,4 +1,4 @@
-export const Navbar = [
+export const Navigation = [
   {
     id: 1,
     text: "home",

@@ -1,74 +1,71 @@
 .button-container {
   cursor: pointer;
-  font-family: lemonmilk-bold;
-  position: relative;
+  height: 100%;
 
-  .fill-on-hover {
-    padding: 10px 20px;
-    transition: 1s ease;
+  .button-wrapper {
+    text-align: center;
+    padding: 10px;
+    font-family: montserrat-semibold;
+    transition: 0.5s ease;
+  }
+
+  .outlined-red {
+    border: solid 2px var(--redlight);
+    color: var(--reddark);
+    border-radius: 5px;
+
+    &:hover {
+      border: solid 2px var(--red);
+      background-color: var(--redlight);
+    }
+  }
+
+  .outlined-yellow {
+    border: solid 2px var(--yellowlight);
+    color: var(--yellowdark);
+    border-radius: 5px;
+
+    &:hover {
+      border: solid 2px var(--yellow);
+      background-color: var(--yellowlight);
+    }
+  }
+
+  .outlined-orange {
+    border: solid 2px var(--orangelight);
+    color: var(--orangedark);
+    border-radius: 5px;
+
+    &:hover {
+      border: solid 2px var(--orange);
+      background-color: var(--orangelight);
+    }
+  }
+
+  .navigation-,
+  .navigation-active {
+    height: 100%;
+    position: relative;
+    font-family: lemonmilk-bold;
+    background-color: var(--yellow);
     color: var(--red);
 
+    .button-label-container {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .navigation- {
     &:hover {
       background-color: var(--orange);
       color: white;
     }
   }
 
-  .wipe-fill-bottom {
-    font-family: montserratmedium;
-    border-bottom: solid 2px var(--orange);
-    padding: 3px 10px 0;
-    color: var(--orange);
-
-    .button-mask {
-      background-color: var(--yellow);
-      position: absolute;
-      width: 100%;
-      height: 0;
-      z-index: 99;
-      bottom: 0;
-      left: 0;
-      transition: 0.5s ease;
-    }
-
-    span {
-      position: relative;
-      z-index: 100;
-    }
-
-    &:hover {
-      .button-mask {
-        height: 100%;
-      }
-    }
-  }
-
-  .submit-button {
-    margin-top: 10px;
-    background-color: var(--yellow);
-    text-align: center;
-    padding: 12px 0 10px;
-    border: solid 2px var(--yellow);
-    font-size: 20px;
-    transition: 0.5s ease;
-
-    &:hover {
-      padding: 9px 0 4px;
-      font-size: 26px;
-    }
-  }
-
-  .active {
+  .navigation-active {
     background-color: var(--orange);
     color: white;
-  }
-
-  .navigation {
-    height: 80px;
-
-    span {
-      position: relative;
-      top: 30%;
-    }
   }
 }

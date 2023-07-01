@@ -1,13 +1,40 @@
 .header-container {
-  padding: 0 30px;
   background-color: var(--yellow);
 
   .header-wrapper {
-    max-width: 1000px;
-    margin: auto;
+    padding-left: 20px;
 
     .logo-container {
-      height: 60px;
+      height: 80px;
+      padding: 10px;
     }
+
+    .hamburger-navigation-container {
+      display: none;
+    }
+
+    @media (max-width: 680px) {
+      .navigation-container {
+        display: none;
+      }
+
+      .hamburger-navigation-container {
+        display: block;
+      }
+    }
+  }
+}
+
+.menu-navigation-container {
+  display: block;
+}
+
+.menu-navigation-container-inactive {
+  display: none;
+}
+
+@media (min-width: 681px) {
+  .menu-navigation-container {
+    display: none;
   }
 }

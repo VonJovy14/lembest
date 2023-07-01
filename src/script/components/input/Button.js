@@ -1,19 +1,14 @@
-import React from "react";
-
 import "stylesheets/components/input/button.scss";
 
-const Button = ({ text, design, onButtonClick }) => {
+const Button = ({ children, variant, color, active, onClick }) => {
   return (
-    <div className="button-container" onClick={() => onButtonClick()}>
-      <div className={design}>
-        <div className="button-mask"></div>
-        {/* {design === "inline-button" ? (
-          <span>{text}</span>
-        ) : (
-          <span>{text.toUpperCase()}</span>
-        )} */}
-
-        <span>{text.toUpperCase()}</span>
+    <div className="button-container" onClick={() => onClick()}>
+      <div
+        className={
+          "button-wrapper " + variant + "-" + color + (active ? "active" : "")
+        }
+      >
+        <div className="button-label-container">{children}</div>
       </div>
     </div>
   );

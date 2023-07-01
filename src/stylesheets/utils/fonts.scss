@@ -15,23 +15,7 @@
 }
 
 @font-face {
-  font-family: "lemon_milklight";
-  src: url("../../assets/fonts/lemonmilk-light-webfont.woff2") format("woff2"),
-    url("../../assets/fonts/lemonmilk-light-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "lemon_milkmedium";
-  src: url("../../assets/fonts/lemonmilk-medium-webfont.woff2") format("woff2"),
-    url("../../assets/fonts/lemonmilk-medium-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "montserratsemibold";
+  font-family: "montserrat-semibold";
   src: url("../../assets/fonts/montserrat-semibold-webfont.woff2")
       format("woff2"),
     url("../../assets/fonts/montserrat-semibold-webfont.woff") format("woff");
@@ -40,7 +24,7 @@
 }
 
 @font-face {
-  font-family: "montserratbold";
+  font-family: "montserrat-bold";
   src: url("../../assets/fonts/montserrat-bold-webfont.woff2") format("woff2"),
     url("../../assets/fonts/montserrat-bold-webfont.woff") format("woff");
   font-weight: normal;
@@ -48,7 +32,7 @@
 }
 
 @font-face {
-  font-family: "montserratmedium";
+  font-family: "montserrat-medium";
   src: url("../../assets/fonts/montserrat-medium-webfont.woff2") format("woff2"),
     url("../../assets/fonts/montserrat-medium-webfont.woff") format("woff");
   font-weight: normal;
