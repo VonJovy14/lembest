@@ -1,0 +1,17 @@
+.hiring-process-container {
+  .hiring-banner-container {
+    margin-bottom: 20px;
+  }
+
+  .hiring-title-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .application-step-container {
+    .steps-break-line {
+      margin: 15px 0;
+      border: solid 1px var(--red);
+    }
+  }
+}

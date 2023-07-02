@@ -11,10 +11,14 @@ import Title from "script/components/display/Title";
 import TextField from "script/components/input/TextField";
 import Collapsible from "script/components/display/Collapsible";
 import OfficeHours from "script/constant/OfficeHours";
+import Button from "script/components/input/Button";
+import Swal from "sweetalert2";
+
+import ValidateFranchiseeDetails from "script/controller/ValidateFranchiseeDetails";
 
 export default class FranchiseeDetails extends Component {
   state = {
-    activeId: 1,
+    activeId: 2,
     franchiseeDetails: { ...FranchiseeData },
   };
 
@@ -29,6 +33,28 @@ export default class FranchiseeDetails extends Component {
     };
 
     this.setState({ franchiseeDetails: newFranchiseeDetails });
+  };
+
+  handleSubmitFranchiseeDetails = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text:
+        "You're about to book an " +
+        (this.state.activeId === 2 ? "Online Meeting" : "Office Visit") +
+        " with us.",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText:
+        "Yes, book me an " +
+        (this.state.activeId === 2 ? "Online Meeting" : "Office Visit") +
+        ".",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        ValidateFranchiseeDetails(this.state.franchiseeDetails);
+      }
+    });
   };
 
   render() {
@@ -55,7 +81,6 @@ export default class FranchiseeDetails extends Component {
                   color="blue"
                 />
               </div>
-
               <TextField
                 label="Full Name"
                 value={this.state.franchiseeDetails.full_name}
@@ -63,7 +88,6 @@ export default class FranchiseeDetails extends Component {
                   this.handleFranchiseeDetailsChange("full_name", data)
                 }
               />
-
               <TextField
                 label="Contact Number"
                 type="number"
@@ -72,7 +96,6 @@ export default class FranchiseeDetails extends Component {
                   this.handleFranchiseeDetailsChange("contact_number", data)
                 }
               />
-
               <TextField
                 label="Email"
                 type="email"
@@ -81,18 +104,16 @@ export default class FranchiseeDetails extends Component {
                   this.handleFranchiseeDetailsChange("email", data)
                 }
               />
-
               <div className="date-time-note-container">
                 <span>
                   Select your preferred date and time of{" "}
-                  {this.state.activeId === 1 ? "meeting" : "visit"}.
+                  {this.state.activeId === 2 ? "meeting" : "visit"}.
                 </span>
 
-                <Collapsible open={this.state.activeId === 1 ? true : false}>
+                <Collapsible open={this.state.activeId === 2 ? true : false}>
                   <OfficeHours />
                 </Collapsible>
               </div>
-
               <Grid container spacing={2}>
                 <Grid item xs={6}>
                   <TextField
@@ -116,6 +137,14 @@ export default class FranchiseeDetails extends Component {
                   />
                 </Grid>
               </Grid>
+
+              <Button
+                variant="outlined"
+                color="orange"
+                onClick={() => this.handleSubmitFranchiseeDetails()}
+              >
+                SUBMIT
+              </Button>
             </div>
           </Container>
         </Container>

@@ -1,0 +1,20 @@
+.page-not-found-container {
+  background-color: var(--yellow);
+  position: relative;
+  height: 100vh;
+
+  .page-not-found-wrapper {
+    position: absolute;
+
+    .page-not-found-title-container {
+      text-align: center;
+      margin-bottom: 10px;
+
+      .error-code {
+        font-size: 100px;
+        font-family: barabara;
+        color: var(--red);
+      }
+    }
+  }
+}

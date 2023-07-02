@@ -1,0 +1,13 @@
+.applicant-details-container {
+  .applicant-details-wrapper {
+    max-width: 750px;
+    margin: auto;
+
+    .basic-information-container,
+    .address-container,
+    .contact-details-container,
+    .application-details-wrapper {
+      margin-bottom: 40px;
+    }
+  }
+}

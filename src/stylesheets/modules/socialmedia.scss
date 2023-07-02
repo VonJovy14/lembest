@@ -1,0 +1,23 @@
+.social-media-icon-container {
+  .social-media-icon-wrapper {
+    padding: 20px;
+    transition: 0.3s ease;
+    width: 80px;
+    height: 80px;
+    position: relative;
+
+    img {
+      width: 40px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    &:hover {
+      padding: 15px;
+
+      img {
+        width: 50px;
+      }
+    }
+  }
+}

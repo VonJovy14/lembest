@@ -3,22 +3,12 @@ import "stylesheets/components/input/textfield.scss";
 const TextField = ({ type, label, value, onChange }) => {
   return (
     <div className="text-field-container">
-      {type === "date" || type === "time" ? (
-        <input
-          type={type}
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          autoComplete="on"
-          min={Date()}
-        />
-      ) : (
-        <input
-          type={type}
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          autoComplete="on"
-        />
-      )}
+      <input
+        type={type}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        autoComplete="on"
+      />
 
       <div
         className={

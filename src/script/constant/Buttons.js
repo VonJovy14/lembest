@@ -50,11 +50,29 @@ export const FooterButtons = [
   {
     id: 2,
     text: "career",
-    link: "/",
+    link: "career",
   },
   {
     id: 3,
     text: "contact us",
+    link: "contact-us",
+  },
+];
+
+export const SocialMediaPlatform = [
+  {
+    id: 1,
+    type: "facebook",
+    link: "/",
+  },
+  {
+    id: 2,
+    type: "instagram",
+    link: "/",
+  },
+  {
+    id: 3,
+    type: "whatsapp",
     link: "/",
   },
 ];

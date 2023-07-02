@@ -7,7 +7,7 @@ import "stylesheets/utils/colors.scss";
 import { Outlet } from "react-router-dom";
 
 import Header from "script/modules/Header";
-// import Footer from "script/modules/Footer";
+import Footer from "script/modules/Footer";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <Outlet />
       </div>
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

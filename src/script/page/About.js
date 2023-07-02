@@ -31,7 +31,12 @@ export default class About extends Component {
 
   _renderAboutGoalModule = (text, description) => (
     <div className="render-about-module-container">
-      <Title text={text.toUpperCase()} variant="underline" color="red" />
+      <Title
+        text={text.toUpperCase()}
+        variant="underline"
+        color="red"
+        size="large"
+      />
 
       {description.map((data, index) => (
         <div className="description-container" key={index}>

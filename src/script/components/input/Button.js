@@ -8,6 +8,7 @@ const Button = ({ children, variant, color, active, onClick }) => {
           "button-wrapper " + variant + "-" + color + (active ? "active" : "")
         }
       >
+        <div className="button-mask "></div>
         <div className="button-label-container">{children}</div>
       </div>
     </div>

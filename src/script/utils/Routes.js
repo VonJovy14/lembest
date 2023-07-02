@@ -8,7 +8,9 @@ import Product from "script/page/Product";
 import About from "script/page/About";
 import Franchise from "script/page/Franchise";
 import Gallery from "script/page/Gallery";
-// import PageNotFound from "script/page/PageNotFound";
+import Career from "script/page/Career";
+import ContactUs from "script/page/ContactUs";
+import PageNotFound from "script/page/PageNotFound";
 
 const routes = (
   <Routes>
@@ -18,9 +20,11 @@ const routes = (
       <Route element={<About />} path="/about" />
       <Route element={<Franchise />} path="/franchise" />
       <Route element={<Gallery />} path="/gallery" />
+      <Route element={<Career />} path="/career" />
+      <Route element={<ContactUs />} path="/contact-us" />
     </Route>
 
-    {/* <Route element={<PageNotFound />} path="*" /> */}
+    <Route element={<PageNotFound />} path="*" />
   </Routes>
 );
 
