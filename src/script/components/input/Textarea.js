@@ -5,7 +5,8 @@ const Textarea = ({ label, value, rows, onChange }) => {
     <div className="textarea-container">
       <textarea
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e) => onChange(e)}
+        name={label.split(" ").join("_").toLowerCase()}
         rows={rows}
       />
 

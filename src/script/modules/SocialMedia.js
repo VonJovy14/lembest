@@ -6,6 +6,7 @@ import { Grid } from "@material-ui/core";
 import Facebook from "assets/images/social/Facebook.svg";
 import Instagram from "assets/images/social/Instagram.svg";
 import WhatsApp from "assets/images/social/WhatsApp.svg";
+import Viber from "assets/images/social/Viber.png";
 
 function SocialMedia() {
   const _renderIcon = (type) => {
@@ -16,6 +17,8 @@ function SocialMedia() {
         return <img src={Instagram} alt="" />;
       case "whatsapp":
         return <img src={WhatsApp} alt="" />;
+      case "viber":
+        return <img src={Viber} alt="" />;
       default:
         return null;
     }
@@ -24,14 +27,17 @@ function SocialMedia() {
   return (
     <div className="social-media-icon-container">
       <Grid container justifyContent="center" alignItems="center">
-        <Grid item>
+        <Grid item xs={12} sm={"auto"}>
           <span>Follow us on:</span>
         </Grid>
+
         {SocialMediaPlatform.map((data, index) => (
           <Grid item key={index}>
-            <div className="social-media-icon-wrapper">
-              {_renderIcon(data.type)}
-            </div>
+            <a href={data.link}>
+              <div className="social-media-icon-wrapper">
+                {_renderIcon(data.type)}
+              </div>
+            </a>
           </Grid>
         ))}
       </Grid>

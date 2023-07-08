@@ -4,9 +4,8 @@ const Select = ({ label, data, value, onSelectChange }) => {
   return (
     <div className="select-container">
       <select
-        name="cars"
-        id="cars"
-        onChange={(e) => onSelectChange(e.target.value)}
+        name={label.split(" ").join("_").toLowerCase()}
+        onChange={(e) => onSelectChange(e)}
         value={value.toUpperCase()}
       >
         {data.map((data, index) => (

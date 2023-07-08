@@ -27,35 +27,29 @@ export const Images = [
 ];
 
 export const Testimonial = [
-  // {
-  //   id: 1,
-  //   video: "https://www.youtube.com/embed/Gh8cvYqfw7Y",
-  //   title: "Mr. Lembest Benedicto",
-  //   thumbnail: "10gRUeLBbjwI6X4PYWBG-gSiGJ2SvHsV2",
-  // },
   {
-    id: 2,
+    id: 1,
     video:
       "https://drive.google.com/file/d/1VAjkzOuVJunOgLrqWpvz1ssOr5b2g-t7/preview",
     title: "Lembest Maliksi Bacoor - Part 1",
     thumbnail: "10gRUeLBbjwI6X4PYWBG-gSiGJ2SvHsV2",
   },
   {
-    id: 3,
+    id: 2,
     video:
       "https://drive.google.com/file/d/1W5_4LVR5EkF4fPiSdksQ1nTxMhEovVgN/preview",
     title: "Lembest Maliksi Bacoor - Part 2",
     thumbnail: "10kPgsxwyApQIgEjGW9mAWMRFK-zQzZEx",
   },
   {
-    id: 4,
+    id: 3,
     video:
       "https://drive.google.com/file/d/1j4oNNxPZgPDP693-EjoOgOUtIsayQRG6/preview",
     title: "Lembest Molino Blvd., Bacoor - Part 1",
     thumbnail: "10pfZtPoxRatOaE8nWwqtNhzU2IMs454R",
   },
   {
-    id: 5,
+    id: 4,
     video:
       "https://drive.google.com/file/d/1-bRkVYA2mwbUx127ZWZ-GTz9H-L7IkVj/preview",
     title: "Lembest Molino Blvd., Bacoor - Part 2",
@@ -66,9 +60,8 @@ export const Testimonial = [
 export const Promotion = [
   {
     id: 1,
-    video:
-      "https://drive.google.com/file/d/1-bRkVYA2mwbUx127ZWZ-GTz9H-L7IkVj/preview",
-    title: "Lembest Molino Blvd., Bacoor - Part 2",
+    video: "https://www.youtube.com/embed/Gh8cvYqfw7Y",
+    title: "Mr. Lembest Benedicto",
     thumbnail: "10tIfMj5kxTxlO-Mlf0ZZvIx5T242PvZQ",
   },
   {

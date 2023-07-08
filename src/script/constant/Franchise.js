@@ -1,19 +1,39 @@
 export const WhyChooseUSData = [
   {
     id: 1,
-    text: "NO ROYALTY FEE",
+    text: "STRONG BRAND",
   },
   {
     id: 2,
-    text: "EASY TO MANAGE",
+    text: "PROVEN MARKET POSITION",
   },
   {
     id: 3,
-    text: "SHORT TERM RETURN OF INVESTMENT",
+    text: "NO ROYALTY FEE",
   },
   {
     id: 4,
-    text: "50% LESS ON FRANCHISE RENEWAL",
+    text: "NO HIDDEN CHARGES",
+  },
+  {
+    id: 5,
+    text: "GUARANTEED ROI",
+  },
+  {
+    id: 6,
+    text: "NO QUOTAS",
+  },
+  {
+    id: 7,
+    text: "FREE DELIVERY",
+  },
+  {
+    id: 8,
+    text: "FRANCHISE SUPPORT SYSTEM",
+  },
+  {
+    id: 9,
+    text: "UNLIMITED TRAINING",
   },
 ];
 
@@ -65,6 +85,6 @@ export const FranchiseeData = {
   full_name: "",
   contact_number: "",
   email: "",
-  date: null,
-  time: null,
+  date: undefined,
+  time: undefined,
 };

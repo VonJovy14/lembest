@@ -63,16 +63,21 @@ export const SocialMediaPlatform = [
   {
     id: 1,
     type: "facebook",
-    link: "/",
+    link: "https://www.facebook.com/lembestlechonofficial/",
   },
   {
     id: 2,
     type: "instagram",
-    link: "/",
+    link: "https://www.instagram.com/lembestlechonofficial/",
   },
   {
     id: 3,
     type: "whatsapp",
-    link: "/",
+    link: "https://wa.me/+639602511133",
+  },
+  {
+    id: 4,
+    type: "viber",
+    link: "viber://contact?number=%2B639602511133",
   },
 ];

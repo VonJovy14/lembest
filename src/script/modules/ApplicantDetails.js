@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
 import "stylesheets/modules/applicantdetails.scss";
 
@@ -13,77 +13,113 @@ import Select from "script/components/input/Select";
 import Button from "script/components/input/Button";
 import Swal from "sweetalert2";
 
-import ValidateApplicantDetails from "script/controller/ValidateApplicantDetails";
+import emailjs from "@emailjs/browser";
+import ValidateContactNumber from "script/Controller/ValidateContactNumber";
 
-export default class ApplicantDetails extends Component {
-  state = {
-    applicantData: { ...ApplicantData },
-  };
+function ApplicantDetails() {
+  const [applicantDetails, setApplicantDetails] = useState({
+    ...ApplicantData,
+  });
 
-  handleApplicantDetailsChange = (variable, value) => {
-    const newApplicantDetails = {
-      ...this.state.applicantData,
-      [variable]: value,
-    };
-
-    this.setState({ applicantData: newApplicantDetails });
-  };
-
-  handleSubmitApplicantDetails = () => {
-    Swal.fire({
-      title: "Are you sure?",
-      text:
-        "You're about to send and application for " +
-        this.state.applicantData.position +
-        ".",
-      icon: "question",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, send my application.",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        ValidateApplicantDetails(this.state.applicantData);
-      }
+  const handleApplicantDetailsChange = (e) => {
+    setApplicantDetails({
+      ...applicantDetails,
+      [e.target.name]: e.target.value,
     });
   };
 
-  render() {
-    return (
-      <div className="applicant-details-container">
-        <Title
-          text="applicant's information"
-          variant="underline"
-          size="medium"
-          color="blue"
-        />
+  const handleImageResume = (e) => {
+    // const [file] = e.files;
+    // if (file) {
+    //   setApplicantDetails({
+    //     ...applicantDetails,
+    //     resume: URL.createObjectURL(file),
+    //   });
+    // }
+  };
 
-        <div className="applicant-details-wrapper">
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const isContactCorrect = ValidateContactNumber(
+      applicantDetails.contact_number
+    );
+
+    if (!isContactCorrect) {
+      Swal.fire("Sorry!", "Please check your contact number.", "error");
+    } else {
+      Swal.fire({
+        title: "Are you sure?",
+        text:
+          "You're about to send and application for " +
+          applicantDetails.position +
+          ".",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, send my application.",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          emailjs
+            .send(
+              "service_7lvexxd",
+              "template_7hfr78h",
+              applicantDetails,
+              "PF6uoh1ajIbx8xtWL"
+            )
+            .then(
+              (result) => {
+                Swal.fire(
+                  "Thank you!",
+                  "We will be contacting you soon!",
+                  "success"
+                );
+                setApplicantDetails({ ...ApplicantData });
+              },
+              (error) => {
+                Swal.fire(
+                  "Sorry!",
+                  "Something went wrong, please try again.",
+                  "error"
+                );
+              }
+            );
+        }
+      });
+    }
+  };
+
+  return (
+    <div className="applicant-details-container">
+      <Title
+        text="applicant's information"
+        variant="underline"
+        size="medium"
+        color="blue"
+      />
+
+      <div className="applicant-details-wrapper">
+        <form onSubmit={handleSubmit}>
           <div className="basic-information-container">
             <Title text="Complete Name" variant="inline" color="blue" />
 
             <TextField
               label="First Name"
-              value={this.state.applicantData.first_name}
-              onChange={(data) =>
-                this.handleApplicantDetailsChange("first_name", data)
-              }
+              value={applicantDetails.first_name}
+              onChange={handleApplicantDetailsChange}
             />
 
             <TextField
               label="Middle Name"
-              value={this.state.applicantData.middle_name}
-              onChange={(data) =>
-                this.handleApplicantDetailsChange("middle_name", data)
-              }
+              value={applicantDetails.middle_name}
+              onChange={handleApplicantDetailsChange}
             />
 
             <TextField
               label="Last Name"
-              value={this.state.applicantData.last_name}
-              onChange={(data) =>
-                this.handleApplicantDetailsChange("last_name", data)
-              }
+              value={applicantDetails.last_name}
+              onChange={handleApplicantDetailsChange}
             />
           </div>
 
@@ -92,26 +128,20 @@ export default class ApplicantDetails extends Component {
 
             <TextField
               label="Barangay"
-              value={this.state.applicantData.barangay}
-              onChange={(data) =>
-                this.handleApplicantDetailsChange("barangay", data)
-              }
+              value={applicantDetails.barangay}
+              onChange={handleApplicantDetailsChange}
             />
 
             <TextField
-              label="City / Municipality"
-              value={this.state.applicantData.municipality}
-              onChange={(data) =>
-                this.handleApplicantDetailsChange("municipality", data)
-              }
+              label="Municipality"
+              value={applicantDetails.municipality}
+              onChange={handleApplicantDetailsChange}
             />
 
             <TextField
               label="Province"
-              value={this.state.applicantData.province}
-              onChange={(data) =>
-                this.handleApplicantDetailsChange("province", data)
-              }
+              value={applicantDetails.province}
+              onChange={handleApplicantDetailsChange}
             />
           </div>
 
@@ -121,18 +151,15 @@ export default class ApplicantDetails extends Component {
             <TextField
               type="number"
               label="Contact Number"
-              value={this.state.applicantData.contact}
-              onChange={(data) =>
-                this.handleApplicantDetailsChange("contact", data)
-              }
+              value={applicantDetails.contact_number}
+              onChange={handleApplicantDetailsChange}
             />
 
             <TextField
-              label="Email Address"
-              value={this.state.applicantData.email}
-              onChange={(data) =>
-                this.handleApplicantDetailsChange("email", data)
-              }
+              type="email"
+              label="Email"
+              value={applicantDetails.email}
+              onChange={handleApplicantDetailsChange}
             />
           </div>
 
@@ -140,33 +167,32 @@ export default class ApplicantDetails extends Component {
             <Title text="application details" variant="inline" color="blue" />
 
             <Select
-              label="Position Desired"
+              label="Desired Position"
               data={AvailablePosition}
-              value={this.state.applicantData.position}
-              onSelectChange={(data) =>
-                this.handleApplicantDetailsChange("position", data)
-              }
+              value={applicantDetails.desired_position}
+              onSelectChange={handleApplicantDetailsChange}
             />
 
             <TextField
               type="file"
-              label="Updated Resume/Biodata"
-              value={this.state.applicantData.resume}
-              onChange={(data) =>
-                this.handleApplicantDetailsChange("resume", data)
-              }
+              label="Resume"
+              value={applicantDetails.resume}
+              onChange={handleImageResume}
             />
           </div>
 
           <Button
             variant="outlined"
+            type="submit"
             color="orange"
-            onClick={() => this.handleSubmitApplicantDetails()}
+            onClick={() => null}
           >
             SUBMIT
           </Button>
-        </div>
+        </form>
       </div>
-    );
-  }
+    </div>
+  );
 }
+
+export default ApplicantDetails;

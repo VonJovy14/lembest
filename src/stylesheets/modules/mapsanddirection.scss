@@ -1,0 +1,30 @@
+.map-and-direction-container {
+  .direction-container {
+    margin-top: 20px;
+    text-align: center;
+
+    .direction-icon-container {
+      position: relative;
+      width: 100px;
+      padding: 20px;
+      border-radius: 15px;
+      cursor: pointer;
+
+      .direction-icon-wrapper {
+        position: relative;
+
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+    }
+
+    .waze-container {
+      background-color: #33ccff;
+    }
+
+    .google-maps-container {
+      background-color: #ececec;
+    }
+  }
+}

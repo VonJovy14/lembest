@@ -2,6 +2,12 @@
   cursor: pointer;
   height: 100%;
 
+  button {
+    border: none;
+    background-color: transparent;
+    width: 100%;
+  }
+
   .button-wrapper {
     text-align: center;
     padding: 10px;
@@ -105,6 +111,12 @@
     .button-label-container {
       position: relative;
       z-index: 2;
+    }
+  }
+
+  @media (max-width: 629px) {
+    .wipe-orange {
+      padding: 0 10px;
     }
   }
 }

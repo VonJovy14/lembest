@@ -6,8 +6,11 @@ const TextField = ({ type, label, value, onChange }) => {
       <input
         type={type}
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e) => onChange(e)}
         autoComplete="on"
+        name={label.split(" ").join("_").toLowerCase()}
+        required
+        min="0"
       />
 
       <div

@@ -5,10 +5,10 @@ export const ApplicantData = {
   barangay: "",
   municipality: "",
   province: "",
-  contact: "",
+  contact_number: "",
   email: "",
-  position: "Store Helper",
-  resume: null,
+  desired_position: "Store Helper",
+  resume: undefined,
 };
 
 export const AvailablePosition = [
@@ -26,7 +26,19 @@ export const AvailablePosition = [
   },
   {
     id: 3,
-    text: "Pahinante",
+    text: "Delivery Helper",
+    description: "Some text.",
+    qualifications: ["1", "2", "3"],
+  },
+  {
+    id: 4,
+    text: "Production",
+    description: "Some text.",
+    qualifications: ["1", "2", "3"],
+  },
+  {
+    id: 5,
+    text: "Inventory Assistant",
     description: "Some text.",
     qualifications: ["1", "2", "3"],
   },

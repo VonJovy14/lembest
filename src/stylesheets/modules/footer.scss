@@ -7,4 +7,16 @@
   .footer-social-media-icon-container {
     margin-top: 10px;
   }
+
+  @media (max-width: 629px) {
+    .footer-wrapper {
+      margin-top: 20px;
+    }
+  }
+
+  @media (max-width: 599px) {
+    .footer-wrapper {
+      margin: 20px 0;
+    }
+  }
 }

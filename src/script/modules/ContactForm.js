@@ -1,70 +1,97 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+
+import { ContactMessage } from "script/constant/Contact";
 
 import Container from "script/components/display/Container";
 import TextField from "script/components/input/TextField";
 import Textarea from "script/components/input/Textarea";
 import Button from "script/components/input/Button";
+import Swal from "sweetalert2";
 
-export default class ContactForm extends Component {
-  state = {
-    fullName: "",
-    email: "",
-    subject: "",
-    message: "",
+import emailjs from "@emailjs/browser";
+
+function ContactForm() {
+  const [inquiryDetails, setInquiryDetails] = useState({ ...ContactMessage });
+
+  const handleContactUsDetailsChange = (e) => {
+    setInquiryDetails({ ...inquiryDetails, [e.target.name]: e.target.value });
   };
 
-  handleContactUsDetailsChange = (variable, value) => {
-    this.setState({ [variable]: value });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .send(
+        "service_n04mk09",
+        "template_im1owaf",
+        inquiryDetails,
+        "QvyIJHMKEZH3QVi6k"
+      )
+      .then(
+        (result) => {
+          Swal.fire("Thank you!", "We will be contacting you soon!", "success");
+          setInquiryDetails({ ...ContactMessage });
+        },
+        (error) => {
+          Swal.fire(
+            "Sorry!",
+            "Something went wrong, please try again.",
+            "error"
+          );
+        }
+      );
   };
 
-  render() {
-    return (
-      <div className="contact-form-container">
-        <Container variant="background" color="orange">
-          <Container variant="background" color="white">
-            <span>
-              For any inquiries, questions or commendations, fill out this form.
-            </span>
+  return (
+    <div className="contact-form-container">
+      <Container variant="background" color="orange">
+        <Container variant="background" color="white">
+          <span>
+            For any inquiries, questions or commendations, fill out this form.
+          </span>
 
+          <form onSubmit={handleSubmit}>
             <TextField
               label="Full Name"
-              value={this.state.fullName}
-              onChange={(data) =>
-                this.handleContactUsDetailsChange("fullName", data)
-              }
+              value={inquiryDetails.full_name}
+              onChange={handleContactUsDetailsChange}
             />
 
             <TextField
               label="Email"
-              value={this.state.email}
-              onChange={(data) =>
-                this.handleContactUsDetailsChange("email", data)
-              }
+              type="email"
+              value={inquiryDetails.email}
+              onChange={handleContactUsDetailsChange}
             />
 
             <TextField
               label="Subject"
-              value={this.state.subject}
-              onChange={(data) =>
-                this.handleContactUsDetailsChange("subject", data)
-              }
+              value={inquiryDetails.subject}
+              onChange={handleContactUsDetailsChange}
             />
 
             <Textarea
               label="Message"
-              value={this.state.message}
+              value={inquiryDetails.message}
               rows={7}
-              onChange={(data) =>
-                this.handleContactUsDetailsChange("message", data)
-              }
+              onChange={handleContactUsDetailsChange}
             />
 
-            <Button variant="outlined" color="orange" onClick={() => null}>
+            {/* <input type="file" name="my_file" /> */}
+
+            <Button
+              variant="outlined"
+              type="submit"
+              color="orange"
+              onClick={() => null}
+            >
               SUBMIT
             </Button>
-          </Container>
+          </form>
         </Container>
-      </div>
-    );
-  }
+      </Container>
+    </div>
+  );
 }
+
+export default ContactForm;
