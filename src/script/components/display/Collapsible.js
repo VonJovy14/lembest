@@ -6,18 +6,16 @@ function Collapsible({ children, open }) {
   const contentRef = useRef();
 
   return (
-    <div>
-      <div
-        className="collapsible-container"
-        ref={contentRef}
-        style={
-          !open
-            ? { height: contentRef.current.scrollHeight + "px" }
-            : { height: 0 }
-        }
-      >
-        {children}
-      </div>
+    <div
+      className="collapsible-container"
+      ref={contentRef}
+      style={
+        !open
+          ? { height: 0 }
+          : { height: contentRef.current.scrollHeight + "px" }
+      }
+    >
+      {children}
     </div>
   );
 }

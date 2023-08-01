@@ -2,4 +2,53 @@
   .home-product-card-container {
     margin: 20px 0;
   }
+
+  .home-carousel-container {
+    .home-carousel-wrapper {
+      border-radius: 10px;
+      overflow: hidden;
+
+      .home-carousel-item-image-container {
+        height: 400px;
+        position: relative;
+
+        .home-carousel-item-image-wrapper-large {
+          position: absolute;
+          width: 100%;
+        }
+
+        .home-carousel-item-image-wrapper-small {
+          display: none;
+        }
+      }
+
+      .home-carousel-item-caption-container {
+        background-color: var(--transparent4);
+        width: 145%;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
+
+@media (max-width: 690px) {
+  .home-container {
+    .home-carousel-container {
+      .home-carousel-wrapper {
+        .home-carousel-item-image-container {
+          height: auto;
+
+          .home-carousel-item-image-wrapper-large {
+            display: none;
+          }
+
+          .home-carousel-item-image-wrapper-small {
+            display: block;
+          }
+        }
+      }
+    }
+  }
 }

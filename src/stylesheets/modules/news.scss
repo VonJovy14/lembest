@@ -1,0 +1,24 @@
+.news-container {
+  .news-per-year-container {
+    display: grid;
+    gap: 20px;
+
+    .news-sort-per-year-container {
+      line-height: 1;
+
+      .news-title-container {
+        padding-top: 8px;
+      }
+
+      .news-expand-icon-container {
+        cursor: pointer;
+      }
+
+      .news-sort-per-year-wrapper {
+        display: grid;
+        gap: 10px;
+        margin-top: 20px;
+      }
+    }
+  }
+}

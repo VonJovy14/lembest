@@ -7,6 +7,7 @@ import Facebook from "assets/images/social/Facebook.svg";
 import Instagram from "assets/images/social/Instagram.svg";
 import WhatsApp from "assets/images/social/WhatsApp.svg";
 import Viber from "assets/images/social/Viber.png";
+import Youtube from "assets/images/social/Youtube.svg";
 
 function SocialMedia() {
   const _renderIcon = (type) => {
@@ -19,6 +20,8 @@ function SocialMedia() {
         return <img src={WhatsApp} alt="" />;
       case "viber":
         return <img src={Viber} alt="" />;
+      case "youtube":
+        return <img src={Youtube} alt="" />;
       default:
         return null;
     }

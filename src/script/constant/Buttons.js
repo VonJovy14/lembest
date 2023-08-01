@@ -80,4 +80,9 @@ export const SocialMediaPlatform = [
     type: "viber",
     link: "viber://contact?number=%2B639602511133",
   },
+  {
+    id: 5,
+    type: "youtube",
+    link: "https://www.youtube.com/@LembestLechonOfficial",
+  },
 ];

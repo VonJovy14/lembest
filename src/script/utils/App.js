@@ -8,6 +8,7 @@ import { Outlet } from "react-router-dom";
 
 import Header from "script/modules/Header";
 import Footer from "script/modules/Footer";
+// import Messenger from "script/components/input/Messenger";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Outlet />
       </div>
 
+      {/* <Messenger /> */}
       <Footer />
     </div>
   );

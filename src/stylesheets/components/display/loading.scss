@@ -1,0 +1,13 @@
+.loading-container {
+  padding: 30px 20px;
+  text-align: center;
+
+  .circular-progress-bar-container {
+    margin: auto;
+    display: inline-block;
+  }
+
+  span {
+    display: block;
+  }
+}

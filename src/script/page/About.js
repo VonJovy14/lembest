@@ -15,6 +15,7 @@ import {
 import Image from "script/components/display/Image";
 import Title from "script/components/display/Title";
 import Bullet from "script/components/display/Bullet";
+import News from "script/modules/News";
 
 export default class About extends Component {
   _renderAboutModule = (text, description) => (
@@ -56,11 +57,11 @@ export default class About extends Component {
     return (
       <div className="about-container">
         <Grid container spacing={5} alignItems="center" justifyContent="center">
-          <Grid item xs={12} md={7}>
+          <Grid item xs={12} sm={8} md={7}>
             {this._renderAboutModule("ABOUT", AboutDetails)}
           </Grid>
 
-          <Grid item xs={4} md={5}>
+          <Grid item xs={6} md={5}>
             <Image image={Logo} fix_on="width" />
           </Grid>
         </Grid>
@@ -85,6 +86,10 @@ export default class About extends Component {
               </div>
             </Grid>
           </Grid>
+        </div>
+
+        <div className="about-news-container">
+          <News />
         </div>
       </div>
     );

@@ -5,6 +5,8 @@ import "stylesheets/modules/header.scss";
 import { Grid } from "@material-ui/core";
 import { Navigation } from "script/constant/Buttons";
 import { Link, useLocation } from "react-router-dom";
+import { NewsData } from "script/constant/News";
+import Carousel from "react-bootstrap/Carousel";
 
 import Logo from "assets/images/Logo1.png";
 
@@ -16,6 +18,7 @@ import NavigationPanel from "script/modules/NavigationPanel";
 
 function Header() {
   const [activePage, setActivePage] = useState("/");
+  const [headlineData, setHeadlineData] = useState([]);
   const [isMenuActive, setMenuActive] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
   const location = useLocation();
@@ -26,7 +29,14 @@ function Header() {
     } else {
       setActivePage(location.pathname);
     }
+
+    handleHeadlineData();
   }, [location.pathname]);
+
+  const handleHeadlineData = () => {
+    const newHeadlineData = NewsData.filter((item) => item.headline);
+    setHeadlineData(newHeadlineData);
+  };
 
   const openMenuModal = () => {
     setMenuActive(true);
@@ -72,6 +82,21 @@ function Header() {
               <Menu onClick={() => openMenuModal()} menuActive={isMenuActive} />
             </Grid>
           </Grid>
+        </div>
+      </div>
+
+      <div className="headline-container">
+        <div className="headline-wrapper content-container">
+          <Carousel interval={2000} indicators={false} controls={false}>
+            {headlineData.map((data, index) => (
+              <Carousel.Item key={index}>
+                <span className="one-line">
+                  <b>{data.title.toUpperCase()}</b> -&nbsp;
+                  <span>{data.details}</span>
+                </span>
+              </Carousel.Item>
+            ))}
+          </Carousel>
         </div>
       </div>
 

@@ -9,6 +9,7 @@ export const ApplicantData = {
   email: "",
   desired_position: "Store Helper",
   resume: undefined,
+  file: "",
 };
 
 export const AvailablePosition = [

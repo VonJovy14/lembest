@@ -7,17 +7,21 @@ import TextField from "script/components/input/TextField";
 import Textarea from "script/components/input/Textarea";
 import Button from "script/components/input/Button";
 import Swal from "sweetalert2";
+import Modal from "script/components/display/Modal";
+import Loading from "script/components/display/Loading";
 
 import emailjs from "@emailjs/browser";
 
 function ContactForm() {
   const [inquiryDetails, setInquiryDetails] = useState({ ...ContactMessage });
+  const [loadingOpen, setLoadingOpen] = useState(false);
 
   const handleContactUsDetailsChange = (e) => {
     setInquiryDetails({ ...inquiryDetails, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
+    setLoadingOpen(true);
     e.preventDefault();
 
     emailjs
@@ -28,9 +32,10 @@ function ContactForm() {
         "QvyIJHMKEZH3QVi6k"
       )
       .then(
-        (result) => {
+        async (result) => {
           Swal.fire("Thank you!", "We will be contacting you soon!", "success");
-          setInquiryDetails({ ...ContactMessage });
+          await setInquiryDetails({ ...ContactMessage });
+          await setLoadingOpen(false);
         },
         (error) => {
           Swal.fire(
@@ -43,54 +48,60 @@ function ContactForm() {
   };
 
   return (
-    <div className="contact-form-container">
-      <Container variant="background" color="orange">
-        <Container variant="background" color="white">
-          <span>
-            For any inquiries, questions or commendations, fill out this form.
-          </span>
+    <>
+      <div className="contact-form-container">
+        <Container variant="background" color="orange">
+          <Container variant="background" color="white">
+            <span>
+              For any inquiries, questions or commendations, fill out this form.
+            </span>
 
-          <form onSubmit={handleSubmit}>
-            <TextField
-              label="Full Name"
-              value={inquiryDetails.full_name}
-              onChange={handleContactUsDetailsChange}
-            />
+            <form onSubmit={handleSubmit}>
+              <TextField
+                label="Full Name"
+                value={inquiryDetails.full_name}
+                onChange={handleContactUsDetailsChange}
+              />
 
-            <TextField
-              label="Email"
-              type="email"
-              value={inquiryDetails.email}
-              onChange={handleContactUsDetailsChange}
-            />
+              <TextField
+                label="Email"
+                type="email"
+                value={inquiryDetails.email}
+                onChange={handleContactUsDetailsChange}
+              />
 
-            <TextField
-              label="Subject"
-              value={inquiryDetails.subject}
-              onChange={handleContactUsDetailsChange}
-            />
+              <TextField
+                label="Subject"
+                value={inquiryDetails.subject}
+                onChange={handleContactUsDetailsChange}
+              />
 
-            <Textarea
-              label="Message"
-              value={inquiryDetails.message}
-              rows={7}
-              onChange={handleContactUsDetailsChange}
-            />
+              <Textarea
+                label="Message"
+                value={inquiryDetails.message}
+                rows={7}
+                onChange={handleContactUsDetailsChange}
+              />
 
-            {/* <input type="file" name="my_file" /> */}
+              {/* <input type="file" name="my_file" /> */}
 
-            <Button
-              variant="outlined"
-              type="submit"
-              color="orange"
-              onClick={() => null}
-            >
-              SUBMIT
-            </Button>
-          </form>
+              <Button
+                variant="outlined"
+                type="submit"
+                color="orange"
+                onClick={() => null}
+              >
+                SUBMIT
+              </Button>
+            </form>
+          </Container>
         </Container>
-      </Container>
-    </div>
+      </div>
+
+      <Modal open={loadingOpen} onModalClose={() => null}>
+        <Loading text="Please wait a moment." />
+      </Modal>
+    </>
   );
 }
 

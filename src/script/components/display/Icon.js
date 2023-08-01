@@ -7,6 +7,8 @@ import Groups3Icon from "@mui/icons-material/Groups3";
 import CelebrationIcon from "@mui/icons-material/Celebration";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import InfoIcon from "@mui/icons-material/Info";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const _renderIcon = (type, size) => {
   switch (type) {
@@ -28,6 +30,10 @@ const _renderIcon = (type, size) => {
       return <PlayCircleOutlineIcon sx={{ fontSize: size }} />;
     case "info":
       return <InfoIcon sx={{ fontSize: size }} />;
+    case "expandless":
+      return <ExpandLessIcon sx={{ fontSize: size }} />;
+    case "expandmore":
+      return <ExpandMoreIcon sx={{ fontSize: size }} />;
     default:
       return null;
   }

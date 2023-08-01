@@ -28,7 +28,11 @@ function MapandDirection() {
 
         <Grid container justifyContent="center" alignItems="center" spacing={2}>
           <Grid item>
-            <a href="https://www.google.com/maps/dir//Lembest+Foods+Corporation,+2069+Kadon,+Valenzuela,+1448+Metro+Manila/@14.6986413,120.9310731,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3397b14fa97747c5:0xa4aaff9df117bb87!2m2!1d121.0011107!2d14.6986232?authuser=0&entry=ttu">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.google.com/maps/dir//Lembest+Foods+Corporation,+2069+Kadon,+Valenzuela,+1448+Metro+Manila/@14.6986413,120.9310731,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3397b14fa97747c5:0xa4aaff9df117bb87!2m2!1d121.0011107!2d14.6986232?authuser=0&entry=ttu"
+            >
               <div className="direction-icon-container google-maps-container">
                 <div className="direction-icon-wrapper">
                   <Image image={GoogleMaps} fix_on="width" />

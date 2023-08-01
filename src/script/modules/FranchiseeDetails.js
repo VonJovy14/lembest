@@ -13,6 +13,8 @@ import Collapsible from "script/components/display/Collapsible";
 import OfficeHours from "script/constant/OfficeHours";
 import Button from "script/components/input/Button";
 import Swal from "sweetalert2";
+import Modal from "script/components/display/Modal";
+import Loading from "script/components/display/Loading";
 
 import emailjs from "@emailjs/browser";
 import ValidateContactNumber from "script/Controller/ValidateContactNumber";
@@ -22,6 +24,7 @@ function FranchiseeDetails() {
     ...FranchiseeData,
   });
   const [activeId, setActiveId] = useState(2);
+  const [loadingOpen, setLoadingOpen] = useState(false);
 
   const handleMeetingTypeChange = (buttonId) => {
     setActiveId(buttonId);
@@ -35,6 +38,7 @@ function FranchiseeDetails() {
   };
 
   const handleSubmit = (e) => {
+    setLoadingOpen(true);
     e.preventDefault();
 
     const isContactCorrect = ValidateContactNumber(
@@ -70,13 +74,14 @@ function FranchiseeDetails() {
               "bv_cSB9LyGWse6cS8"
             )
             .then(
-              (result) => {
+              async (result) => {
                 Swal.fire(
                   "Thank you!",
                   "We will be contacting you soon!",
                   "success"
                 );
-                setFranchiseeDetails({ ...FranchiseeData });
+                await setFranchiseeDetails({ ...FranchiseeData });
+                await setLoadingOpen(false);
               },
               (error) => {
                 Swal.fire(
@@ -92,94 +97,100 @@ function FranchiseeDetails() {
   };
 
   return (
-    <div className="franchise-details-container">
-      <div className="meeting-type-button-container">
-        <GroupButton
-          data={MeetingType}
-          variant="bordered"
-          activeId={activeId}
-          color="yellow"
-          onButtonClick={(data) => handleMeetingTypeChange(data)}
-        />
-      </div>
+    <>
+      <div className="franchise-details-container">
+        <div className="meeting-type-button-container">
+          <GroupButton
+            data={MeetingType}
+            variant="bordered"
+            activeId={activeId}
+            color="yellow"
+            onButtonClick={(data) => handleMeetingTypeChange(data)}
+          />
+        </div>
 
-      <Container variant="background" color="orange">
-        <Container variant="background" color="white">
-          <div className="franchisee-information-container">
-            <div className="franchisee-information-title-container">
-              <Title
-                text="franchisee information"
-                variant="inline"
-                size="medium"
-                color="blue"
-              />
-            </div>
-
-            <form onSubmit={handleSubmit}>
-              <TextField
-                label="Full Name"
-                value={franchiseeDetails.full_name}
-                onChange={handleFranchiseeDetailsChange}
-              />
-
-              <TextField
-                label="Contact Number"
-                type="number"
-                value={franchiseeDetails.contact_number}
-                onChange={handleFranchiseeDetailsChange}
-              />
-
-              <TextField
-                label="Email"
-                type="email"
-                value={franchiseeDetails.email}
-                onChange={handleFranchiseeDetailsChange}
-              />
-
-              <div className="date-time-note-container">
-                <span>
-                  Select your preferred date and time of{" "}
-                  {activeId === 2 ? "meeting" : "visit"}.
-                </span>
-
-                <Collapsible open={activeId === 2 ? true : false}>
-                  <OfficeHours />
-                </Collapsible>
+        <Container variant="background" color="orange">
+          <Container variant="background" color="white">
+            <div className="franchisee-information-container">
+              <div className="franchisee-information-title-container">
+                <Title
+                  text="franchisee information"
+                  variant="inline"
+                  size="medium"
+                  color="blue"
+                />
               </div>
 
-              <Grid container spacing={2}>
-                <Grid item xs={6}>
-                  <TextField
-                    label="Date"
-                    type="date"
-                    value={franchiseeDetails.date}
-                    onChange={handleFranchiseeDetailsChange}
-                  />
+              <form onSubmit={handleSubmit}>
+                <TextField
+                  label="Full Name"
+                  value={franchiseeDetails.full_name}
+                  onChange={handleFranchiseeDetailsChange}
+                />
+
+                <TextField
+                  label="Contact Number"
+                  type="number"
+                  value={franchiseeDetails.contact_number}
+                  onChange={handleFranchiseeDetailsChange}
+                />
+
+                <TextField
+                  label="Email"
+                  type="email"
+                  value={franchiseeDetails.email}
+                  onChange={handleFranchiseeDetailsChange}
+                />
+
+                <div className="date-time-note-container">
+                  <span>
+                    Select your preferred date and time of{" "}
+                    {activeId === 2 ? "meeting" : "visit"}.
+                  </span>
+
+                  <Collapsible open={activeId === 2 ? false : true}>
+                    <OfficeHours />
+                  </Collapsible>
+                </div>
+
+                <Grid container spacing={2}>
+                  <Grid item xs={6}>
+                    <TextField
+                      label="Date"
+                      type="date"
+                      value={franchiseeDetails.date}
+                      onChange={handleFranchiseeDetailsChange}
+                    />
+                  </Grid>
+
+                  <Grid item xs={6}>
+                    <TextField
+                      label="Time"
+                      type="time"
+                      value={franchiseeDetails.time}
+                      onChange={handleFranchiseeDetailsChange}
+                    />
+                  </Grid>
                 </Grid>
 
-                <Grid item xs={6}>
-                  <TextField
-                    label="Time"
-                    type="time"
-                    value={franchiseeDetails.time}
-                    onChange={handleFranchiseeDetailsChange}
-                  />
-                </Grid>
-              </Grid>
-
-              <Button
-                variant="outlined"
-                type="submit"
-                color="orange"
-                onClick={() => null}
-              >
-                SUBMIT
-              </Button>
-            </form>
-          </div>
+                <Button
+                  variant="outlined"
+                  type="submit"
+                  color="orange"
+                  onClick={() => null}
+                >
+                  SUBMIT
+                </Button>
+              </form>
+            </div>
+          </Container>
         </Container>
-      </Container>
-    </div>
+      </div>
+
+      <Modal open={loadingOpen} onModalClose={() => null}>
+        <Loading text="Please wait a moment while we send your franchise inquiry." />
+      </Modal>
+    </>
   );
 }
 

@@ -2,7 +2,7 @@
   background-color: var(--yellow);
 
   .header-wrapper {
-    // padding-left: 20px;
+    padding-right: 10px;
 
     .logo-container {
       height: 80px;
@@ -21,6 +21,19 @@
       .hamburger-navigation-container {
         display: block;
       }
+    }
+  }
+}
+
+.headline-container {
+  background-color: var(--orange);
+  border-top: solid 2px white;
+
+  .headline-wrapper {
+    padding: 0 10px;
+
+    .additional-headline-hide {
+      display: none;
     }
   }
 }
